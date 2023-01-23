@@ -5,11 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Module.Address;
-import Module.Contact;
-import Module.Person;
-
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -19,6 +14,12 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+
+import Model.Address;
+import Model.Contact;
+import Model.Person;
+
+import java.awt.Font;
 
 public class Lab1Frame extends JFrame {
 
@@ -34,6 +35,12 @@ public class Lab1Frame extends JFrame {
 	private JTextField tfCity;
 	private JTextField tfZip;
 	private Person person = new Person();
+	private JTextField tfphone_personal;
+	private JTextField tfemail_personal;
+	private JTextField tfStreetName_current;
+	private JTextField tfAptNo_current;
+	private JTextField tfCity_current;
+	private JTextField tfZip_current;
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +62,7 @@ public class Lab1Frame extends JFrame {
 	 */
 	public Lab1Frame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 626, 470);
+		setBounds(100, 100, 970, 660);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -64,7 +71,7 @@ public class Lab1Frame extends JFrame {
 		
 		JSplitPane splitPane = new JSplitPane();
 		splitPane.setResizeWeight(0.4);
-		splitPane.setBounds(0, 0, 610, 431);
+		splitPane.setBounds(0, 0, 954, 621);
 		contentPane.add(splitPane);
 		
 		JPanel panel = new JPanel();
@@ -73,97 +80,97 @@ public class Lab1Frame extends JFrame {
 		panel.setLayout(null);
 		
 		tfID = new JTextField();
-		tfID.setBounds(90, 25, 126, 21);
+		tfID.setBounds(153, 22, 126, 21);
 		panel.add(tfID);
 		tfID.setColumns(10);
 		
 		tfFirstName = new JTextField();
-		tfFirstName.setBounds(90, 56, 126, 21);
+		tfFirstName.setBounds(153, 53, 126, 21);
 		panel.add(tfFirstName);
 		tfFirstName.setColumns(10);
 		
 		JLabel lbID = new JLabel("NUID");
-		lbID.setBounds(10, 28, 54, 15);
+		lbID.setBounds(40, 28, 54, 15);
 		panel.add(lbID);
 		
 		JLabel lbFN = new JLabel("First Name");
-		lbFN.setBounds(10, 59, 78, 15);
+		lbFN.setBounds(40, 59, 78, 15);
 		panel.add(lbFN);
 		
 		tfLastName = new JTextField();
-		tfLastName.setBounds(90, 87, 126, 21);
+		tfLastName.setBounds(153, 84, 126, 21);
 		panel.add(tfLastName);
 		tfLastName.setColumns(10);
 		
 		tfCollegeName = new JTextField();
-		tfCollegeName.setBounds(90, 124, 126, 21);
+		tfCollegeName.setBounds(153, 121, 126, 21);
 		panel.add(tfCollegeName);
 		tfCollegeName.setColumns(10);
 		
 		tfphone = new JTextField();
-		tfphone.setBounds(90, 155, 126, 21);
+		tfphone.setBounds(153, 152, 126, 21);
 		panel.add(tfphone);
 		tfphone.setColumns(10);
 		
 		tfemail = new JTextField();
-		tfemail.setBounds(90, 186, 126, 21);
+		tfemail.setBounds(153, 183, 126, 21);
 		panel.add(tfemail);
 		tfemail.setColumns(10);
 		
 		JLabel lbLN = new JLabel("Last Name");
-		lbLN.setBounds(10, 90, 54, 15);
+		lbLN.setBounds(40, 90, 103, 15);
 		panel.add(lbLN);
 		
 		JLabel lbCN = new JLabel("College Name");
-		lbCN.setBounds(10, 127, 78, 15);
+		lbCN.setBounds(40, 127, 78, 15);
 		panel.add(lbCN);
 		
-		JLabel lbphone = new JLabel("Phone ");
-		lbphone.setBounds(10, 158, 54, 15);
+		JLabel lbphone = new JLabel("Official Phone ");
+		lbphone.setBounds(40, 158, 103, 15);
 		panel.add(lbphone);
 		
-		JLabel lbemail = new JLabel("e-mail");
-		lbemail.setBounds(10, 189, 54, 15);
+		JLabel lbemail = new JLabel("Official e-mail");
+		lbemail.setBounds(40, 189, 93, 15);
 		panel.add(lbemail);
 		
 		tfStreetName = new JTextField();
-		tfStreetName.setBounds(90, 217, 126, 21);
+		tfStreetName.setBounds(153, 437, 126, 21);
 		panel.add(tfStreetName);
 		tfStreetName.setColumns(10);
 		
 		tfAptNo = new JTextField();
-		tfAptNo.setBounds(90, 248, 126, 21);
+		tfAptNo.setBounds(153, 468, 126, 21);
 		panel.add(tfAptNo);
 		tfAptNo.setColumns(10);
 		
 		tfCity = new JTextField();
-		tfCity.setBounds(90, 279, 126, 21);
+		tfCity.setBounds(153, 499, 126, 21);
 		panel.add(tfCity);
 		tfCity.setColumns(10);
 		
 		tfZip = new JTextField();
-		tfZip.setBounds(90, 310, 126, 21);
+		tfZip.setBounds(153, 530, 126, 21);
 		panel.add(tfZip);
 		tfZip.setColumns(10);
 		
 		JLabel lbSN = new JLabel("Street Name");
-		lbSN.setBounds(10, 220, 78, 15);
+		lbSN.setBounds(40, 443, 78, 15);
 		panel.add(lbSN);
 		
 		JLabel lbAN = new JLabel("Apt. No");
-		lbAN.setBounds(10, 251, 54, 15);
+		lbAN.setBounds(40, 474, 54, 15);
 		panel.add(lbAN);
 		
 		JLabel lbcity = new JLabel("City/State");
-		lbcity.setBounds(10, 282, 78, 15);
+		lbcity.setBounds(40, 505, 78, 15);
 		panel.add(lbcity);
 		
 		JLabel lbzip = new JLabel("ZipCode");
-		lbzip.setBounds(10, 313, 54, 15);
+		lbzip.setBounds(40, 536, 54, 15);
 		panel.add(lbzip);
 		
 		JLabel lberror = new JLabel("");
-		lberror.setBounds(10, 390, 270, 15);
+		lberror.setBounds(10, 594, 359, 15);
 		panel.add(lberror);
 		
 		JPanel panel_1 = new JPanel();
@@ -173,7 +180,7 @@ public class Lab1Frame extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_2.setBackground(new Color(255, 255, 255));
-		panel_2.setBounds(10, 75, 342, 191);
+		panel_2.setBounds(66, 178, 455, 235);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -182,24 +189,38 @@ public class Lab1Frame extends JFrame {
 		panel_2.add(lbCollegeName);
 		
 		JLabel lbName = new JLabel("Name");
+		lbName.setFont(new Font("Sitka Heading", Font.PLAIN, 16));
 		lbName.setBounds(20, 35, 132, 15);
 		panel_2.add(lbName);
 		
 		JLabel lbNUID = new JLabel("NUID");
-		lbNUID.setBounds(173, 35, 143, 15);
+		lbNUID.setFont(new Font("Sitka Heading", Font.PLAIN, 16));
+		lbNUID.setBounds(243, 35, 143, 15);
 		panel_2.add(lbNUID);
 		
-		JLabel lbPhone = new JLabel("Phone Number");
-		lbPhone.setBounds(20, 74, 312, 15);
+		JLabel lbPhone = new JLabel("Official Phone Number");
+		lbPhone.setBounds(20, 74, 414, 15);
 		panel_2.add(lbPhone);
 		
-		JLabel lbEmail = new JLabel("E-mail");
-		lbEmail.setBounds(20, 109, 312, 15);
+		JLabel lbEmail = new JLabel("Official E-mail");
+		lbEmail.setBounds(20, 99, 414, 15);
 		panel_2.add(lbEmail);
 		
-		JLabel lbaddress = new JLabel("Address");
-		lbaddress.setBounds(20, 148, 312, 15);
+		JLabel lbaddress = new JLabel("Permanent Address");
+		lbaddress.setBounds(20, 174, 414, 15);
 		panel_2.add(lbaddress);
+		
+		JLabel lbPhone_personal = new JLabel("Personal Phone Number");
+		lbPhone_personal.setBounds(20, 124, 414, 15);
+		panel_2.add(lbPhone_personal);
+		
+		JLabel lbEmail_personal = new JLabel("Personal E-mail");
+		lbEmail_personal.setBounds(20, 149, 414, 15);
+		panel_2.add(lbEmail_personal);
+		
+		JLabel lbaddress_current = new JLabel("Current Address");
+		lbaddress_current.setBounds(20, 199, 414, 15);
+		panel_2.add(lbaddress_current);
 		
 		JButton btnsave = new JButton("Save");
 		btnsave.addActionListener(new ActionListener() {
@@ -217,22 +238,22 @@ public class Lab1Frame extends JFrame {
 				}else if (tfCollegeName.getText() == null || tfCollegeName.getText().length() == 0) {
 					lberror.setText("The College Name could not be empty");
 					return;
-				}else if (tfphone.getText() == null || tfphone.getText().length() == 0) {
+				}else if (tfphone.getText() == null || tfphone.getText().length() == 0 || tfphone_personal.getText() == null || tfphone_personal.getText().length() == 0) {
 					lberror.setText("The Phone number could not be empty");
 					return;
-				}else if (tfemail.getText() == null || tfemail.getText().length() == 0) {
+				}else if (tfemail.getText() == null || tfemail.getText().length() == 0 || tfemail_personal.getText() == null || tfemail_personal.getText().length() == 0) {
 					lberror.setText("The E-mail could not be empty");
 					return;
-				}else if (tfStreetName.getText() == null || tfStreetName.getText().length() == 0) {
+				}else if (tfStreetName.getText() == null || tfStreetName.getText().length() == 0 || tfStreetName_current.getText() == null || tfStreetName_current.getText().length() == 0) {
 					lberror.setText("The Street Name could not be empty");
 					return;
-				}else if (tfAptNo.getText() == null || tfAptNo.getText().length() == 0) {
+				}else if (tfAptNo.getText() == null || tfAptNo.getText().length() == 0 || tfAptNo_current.getText() == null || tfAptNo_current.getText().length() == 0) {
 					lberror.setText("The Apt. No could not be empty");
 					return;
-				}else if (tfCity.getText() == null || tfCity.getText().length() == 0) {
+				}else if (tfCity.getText() == null || tfCity.getText().length() == 0 || tfCity_current.getText() == null || tfCity_current.getText().length() == 0) {
 					lberror.setText("The City/State could not be empty");
 					return;
-				}else if (tfZip.getText() == null || tfZip.getText().length() == 0) {
+				}else if (tfZip.getText() == null || tfZip.getText().length() == 0 || tfZip_current.getText() == null || tfZip_current.getText().length() == 0) {
 					lberror.setText("The Zip Code could not be empty");
 					return;
 				}
@@ -247,24 +268,94 @@ public class Lab1Frame extends JFrame {
 				person.setFirstName(tfFirstName.getText());
 				person.setLastName(tfLastName.getText());
 				person.setCollegeName(tfCollegeName.getText());
-				person.setContactInfo(tfphone.getText(), tfemail.getText());
-				person.setAddress(tfStreetName.getText(), tfAptNo.getText(), tfCity.getText(), tfZip.getText());
+				person.setContactInfo_official(tfphone.getText(), tfemail.getText());
+				person.setAddress_permanent(tfStreetName.getText(), tfAptNo.getText(), tfCity.getText(), tfZip.getText());
+				person.setContactInfo_personal(tfphone_personal.getText(), tfemail_personal.getText());
+				person.setAddress_current(tfStreetName_current.getText(), tfAptNo_current.getText(), tfCity_current.getText(), tfZip_current.getText());
 				
 				// Display
 				lbCollegeName.setText(person.getCollegeName());
 				lbNUID.setText(""+person.getNUID());
 				// Combine the First Name and Last Name to display Name.
 				lbName.setText(person.getFirstName()+" "+person.getLastName());
-				Contact contact = person.getContactInfo();
-				Address address = person.getAddress();
-				lbPhone.setText(contact.getPhone());
-				lbEmail.setText(contact.getE_mail());
+				Contact contact_official = person.getContactInfo_official();
+				Address address_permanent = person.getAddress_permanent();
+				Contact contact_personal = person.getContactInfo_personal();
+				Address address_current = person.getAddress_current();
+				lbPhone.setText(contact_official.getPhone());
+				lbEmail.setText(contact_official.getE_mail());
+				lbPhone_personal.setText(contact_personal.getPhone());
+				lbEmail_personal.setText(contact_personal.getE_mail());
 				// Combine St name, Apt No, City/State and Zip Code to display address.
-				lbaddress.setText(address.getStreetName()+" "+address.getAptNo()+" "+address.getState()+", "+address.getZipCode());
-				
+				lbaddress.setText(address_permanent.getStreetName()+" "+address_permanent.getAptNo()+" "+address_permanent.getState()+", "+address_permanent.getZipCode());
+				lbaddress_current.setText(address_current.getStreetName()+" "+address_current.getAptNo()+" "+address_current.getState()+", "+address_current.getZipCode());
 			}
 		});
-		btnsave.setBounds(63, 357, 93, 23);
+		btnsave.setBounds(137, 561, 93, 23);
 		panel.add(btnsave);
+		
+		JLabel lblPersonalPhone = new JLabel("Personal Phone ");
+		lblPersonalPhone.setBounds(40, 220, 103, 15);
+		panel.add(lblPersonalPhone);
+		
+		tfphone_personal = new JTextField();
+		tfphone_personal.setColumns(10);
+		tfphone_personal.setBounds(153, 214, 126, 21);
+		panel.add(tfphone_personal);
+		
+		JLabel lbemail_p = new JLabel("Personal e-mail");
+		lbemail_p.setBounds(40, 251, 93, 15);
+		panel.add(lbemail_p);
+		
+		tfemail_personal = new JTextField();
+		tfemail_personal.setColumns(10);
+		tfemail_personal.setBounds(153, 245, 126, 21);
+		panel.add(tfemail_personal);
+		
+		JLabel lbSN_current = new JLabel("Street Name");
+		lbSN_current.setBounds(40, 303, 78, 15);
+		panel.add(lbSN_current);
+		
+		tfStreetName_current = new JTextField();
+		tfStreetName_current.setColumns(10);
+		tfStreetName_current.setBounds(153, 297, 126, 21);
+		panel.add(tfStreetName_current);
+		
+		JLabel lbAN_current = new JLabel("Apt. No");
+		lbAN_current.setBounds(40, 334, 54, 15);
+		panel.add(lbAN_current);
+		
+		tfAptNo_current = new JTextField();
+		tfAptNo_current.setColumns(10);
+		tfAptNo_current.setBounds(153, 328, 126, 21);
+		panel.add(tfAptNo_current);
+		
+		JLabel lbcity_current = new JLabel("City/State");
+		lbcity_current.setBounds(40, 365, 78, 15);
+		panel.add(lbcity_current);
+		
+		tfCity_current = new JTextField();
+		tfCity_current.setColumns(10);
+		tfCity_current.setBounds(153, 359, 126, 21);
+		panel.add(tfCity_current);
+		
+		JLabel lbzip_current = new JLabel("ZipCode");
+		lbzip_current.setBounds(40, 396, 54, 15);
+		panel.add(lbzip_current);
+		
+		tfZip_current = new JTextField();
+		tfZip_current.setColumns(10);
+		tfZip_current.setBounds(153, 390, 126, 21);
+		panel.add(tfZip_current);
+		
+		JLabel lblNewLabel = new JLabel("Current Address");
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 13));
+		lblNewLabel.setBounds(10, 278, 144, 15);
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Permanent Address");
+		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 13));
+		lblNewLabel_1.setBounds(10, 418, 133, 15);
+		panel.add(lblNewLabel_1);
 	}
 }
