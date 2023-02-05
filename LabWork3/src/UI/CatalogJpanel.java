@@ -68,7 +68,14 @@ public class CatalogJpanel extends JPanel {
 			new String[] {
 				"Name", "Dosage"
 			}
-		));
+		) {
+			Class[] columnTypes = new Class[] {
+				Object.class, Double.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		tableModel = (DefaultTableModel) table.getModel();
@@ -100,6 +107,8 @@ public class CatalogJpanel extends JPanel {
 		});
 		btnDelete.setBounds(394, 442, 137, 23);
 		add(btnDelete);
+		
+		display();
 	}
 	
 	public void display() {

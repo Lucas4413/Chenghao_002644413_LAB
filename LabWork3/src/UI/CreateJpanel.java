@@ -41,21 +41,21 @@ public class CreateJpanel extends JPanel {
 		tfID.setColumns(10);
 		
 		JLabel lbTemp = new JLabel("Temperature");
-		lbTemp.setBounds(177, 162, 76, 15);
+		lbTemp.setBounds(177, 240, 76, 15);
 		add(lbTemp);
 		
 		tfTemp = new JTextField();
 		tfTemp.setColumns(10);
-		tfTemp.setBounds(313, 156, 150, 21);
+		tfTemp.setBounds(313, 234, 150, 21);
 		add(tfTemp);
 		
 		JLabel lbBloodPressure = new JLabel("Blood Pressure");
-		lbBloodPressure.setBounds(177, 239, 102, 15);
+		lbBloodPressure.setBounds(177, 164, 102, 15);
 		add(lbBloodPressure);
 		
 		tfBloodPressure = new JTextField();
 		tfBloodPressure.setColumns(10);
-		tfBloodPressure.setBounds(313, 233, 150, 21);
+		tfBloodPressure.setBounds(313, 158, 150, 21);
 		add(tfBloodPressure);
 		
 		JButton btnAdd = new JButton("Add");

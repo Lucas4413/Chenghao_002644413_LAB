@@ -53,21 +53,21 @@ public class ViewJpanel extends JPanel {
 		add(tfID);
 		
 		JLabel lbTemp = new JLabel("Temperature");
-		lbTemp.setBounds(49, 172, 76, 15);
+		lbTemp.setBounds(49, 259, 76, 15);
 		add(lbTemp);
 		
 		tfTemp = new JTextField();
 		tfTemp.setColumns(10);
-		tfTemp.setBounds(185, 166, 66, 21);
+		tfTemp.setBounds(185, 253, 66, 21);
 		add(tfTemp);
 		
 		JLabel lbBloodPressure = new JLabel("Blood Pressure");
-		lbBloodPressure.setBounds(49, 249, 102, 15);
+		lbBloodPressure.setBounds(49, 176, 102, 15);
 		add(lbBloodPressure);
 		
 		tfBloodPressure = new JTextField();
 		tfBloodPressure.setColumns(10);
-		tfBloodPressure.setBounds(185, 243, 66, 21);
+		tfBloodPressure.setBounds(185, 170, 66, 21);
 		add(tfBloodPressure);
 		
 		JButton btnUpdate = new JButton("Update");
@@ -98,7 +98,14 @@ public class ViewJpanel extends JPanel {
 			new String[] {
 				"ID", "Blood Pressure", "Temperature"
 			}
-		));
+		) {
+			Class[] columnTypes = new Class[] {
+				Object.class, Double.class, Double.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
 		table.getColumnModel().getColumn(1).setPreferredWidth(116);
 		table.getColumnModel().getColumn(2).setPreferredWidth(103);
 		scrollPane.setViewportView(table);
@@ -116,6 +123,8 @@ public class ViewJpanel extends JPanel {
 					tfID.setText(""+selectedObservation.getObservationId());
 					tfTemp.setText(""+selectedObservation.getTemperature());
 					tfBloodPressure.setText(""+selectedObservation.getBloodPress());
+				}else {
+					JOptionPane.showMessageDialog(null, "You haven't selected any row!");
 				}
 				
 			}
